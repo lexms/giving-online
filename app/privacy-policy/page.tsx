@@ -25,12 +25,12 @@ export default async function PrivacyPolicyPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <main className="max-w-4xl mx-auto px-4 py-16">
+      <main className="max-w-4xl mx-auto px-4 py-16 overflow-x-hidden">
         <div className="mb-8">
           <BackButton />
         </div>
         <article
-          className="prose prose-gray max-w-none 
+          className="prose prose-gray max-w-none break-words
             prose-headings:font-semibold prose-headings:scroll-mt-20
             prose-h1:text-4xl prose-h1:mb-12 prose-h1:font-bold
             prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
@@ -40,6 +40,7 @@ export default async function PrivacyPolicyPage() {
             prose-ul:my-6 prose-li:my-2
             prose-strong:font-semibold
             prose-a:text-blue-600 hover:prose-a:text-blue-800 prose-a:no-underline hover:prose-a:underline
+            prose-a:break-words
             prose-blockquote:border-l-4 prose-blockquote:border-gray-300
             prose-blockquote:pl-4 prose-blockquote:italic"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: Markdown content is sanitized
