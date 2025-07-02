@@ -75,8 +75,14 @@ export function PWAInstallHeader() {
     }
   }
 
-  // Don't show if already installed or if install prompt isn't available
-  if (isInstalled || !showInstall) return null
+  const handleOpenApp = () => {
+    // Get the current URL but ensure it uses HTTPS
+    const appUrl = window.location.href.replace("http://", "https://")
+    window.open(appUrl, "_blank")
+  }
+
+  // Don't show if prompt isn't available and app isn't installed
+  if (!showInstall && !isInstalled) return null
 
   return (
     <div className="bg-primary text-primary-foreground px-4 py-2 flex items-center justify-between">
@@ -86,16 +92,20 @@ export function PWAInstallHeader() {
           alt="App Icon"
           className="w-8 h-8 rounded"
         />
-        <span>Install our app for a better experience</span>
+        <span>
+          {isInstalled
+            ? "Open our app for a better experience"
+            : "Install our app for a better experience"}
+        </span>
       </div>
       <div className="flex items-center gap-2">
         <Button
           variant="secondary"
           size="sm"
-          onClick={handleInstall}
+          onClick={isInstalled ? handleOpenApp : handleInstall}
           className="whitespace-nowrap"
         >
-          Install App
+          {isInstalled ? "Open App" : "Install App"}
         </Button>
         <Button
           variant="ghost"
