@@ -26,8 +26,21 @@ export function PWAInstallHeader() {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null)
   const [isInstalled, setIsInstalled] = useState(false)
+  const [isIOS, setIsIOS] = useState(false)
 
   useEffect(() => {
+    // Check if device is iOS
+    const checkIsIOS = () => {
+      const isIOSDevice =
+        /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+        !navigator.userAgent.includes("Android")
+      setIsIOS(isIOSDevice)
+      // On iOS, we want to show the install instructions by default
+      if (isIOSDevice) {
+        setShowInstall(true)
+      }
+    }
+
     // Check if running in standalone mode (installed PWA)
     const checkInstallation = () => {
       const isStandalone = window.matchMedia(
@@ -38,14 +51,15 @@ export function PWAInstallHeader() {
       setIsInstalled(isStandalone || isIOSInstalled)
     }
 
-    // Check initial installation status
+    // Check initial status
+    checkIsIOS()
     checkInstallation()
 
     // Listen for changes in display mode
     const mediaQuery = window.matchMedia("(display-mode: standalone)")
     mediaQuery.addEventListener("change", checkInstallation)
 
-    // Handle install prompt
+    // Handle install prompt (won't fire on iOS)
     const handleInstallPrompt = (e: BeforeInstallPromptEvent) => {
       e.preventDefault()
       if (!isInstalled) {
@@ -63,6 +77,11 @@ export function PWAInstallHeader() {
   }, [isInstalled])
 
   const handleInstall = async () => {
+    if (isIOS) {
+      // Can't programmatically trigger install on iOS
+      return
+    }
+
     if (!deferredPrompt) return
 
     deferredPrompt.prompt()
@@ -81,8 +100,8 @@ export function PWAInstallHeader() {
     window.open(appUrl, "_blank")
   }
 
-  // Don't show if prompt isn't available and app isn't installed
-  if (!showInstall && !isInstalled) return null
+  // Don't show if it's not installed and we don't have install prompt (except on iOS)
+  if (!showInstall && !isInstalled && !isIOS) return null
 
   return (
     <div className="bg-primary text-primary-foreground px-4 py-2 flex items-center justify-between">
@@ -95,18 +114,40 @@ export function PWAInstallHeader() {
         <span>
           {isInstalled
             ? "Open our app for a better experience"
-            : "Install our app for a better experience"}
+            : isIOS
+              ? "Add to Home Screen for a better experience"
+              : "Install our app for a better experience"}
         </span>
       </div>
       <div className="flex items-center gap-2">
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={isInstalled ? handleOpenApp : handleInstall}
-          className="whitespace-nowrap"
-        >
-          {isInstalled ? "Open App" : "Install App"}
-        </Button>
+        {isInstalled ? (
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={handleOpenApp}
+            className="whitespace-nowrap"
+          >
+            Open App
+          </Button>
+        ) : isIOS ? (
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => {}}
+            className="whitespace-nowrap"
+          >
+            Tap ⋯ then "Add to Home Screen"
+          </Button>
+        ) : (
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={handleInstall}
+            className="whitespace-nowrap"
+          >
+            Install App
+          </Button>
+        )}
         <Button
           variant="ghost"
           size="icon"
