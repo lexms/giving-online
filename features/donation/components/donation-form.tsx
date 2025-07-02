@@ -90,7 +90,7 @@ export default function DonationFormComponent() {
 
   if (showThankYou) {
     return (
-      <div className="max-w-2xl mx-auto px-6 py-16">
+      <div className="max-w-2xl mx-auto md:px-6 py-16">
         <Card className="text-center shadow-lg border-0 bg-gradient-to-br from-green-50 to-emerald-50">
           <CardHeader className="pb-6 pt-12">
             <div className="mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 shadow-lg">
@@ -126,8 +126,8 @@ export default function DonationFormComponent() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12">
-      <form onSubmit={handleSubmit} className="space-y-10">
+    <div className="max-w-3xl mx-auto md:px-6 ">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         {/* Donation Option Selection */}
         <Card className="shadow-lg border-0 bg-white">
           <CardHeader className="pb-6 pt-8 px-8">
@@ -140,7 +140,7 @@ export default function DonationFormComponent() {
             <RadioGroup
               value={form.optionId}
               onValueChange={(value) => setForm({ ...form, optionId: value })}
-              className="space-y-4"
+              className="flex flex-col gap-4"
             >
               {donationOptions.map((option) => (
                 <div key={option.id} className="flex gap-2 items-start">
@@ -150,7 +150,7 @@ export default function DonationFormComponent() {
                     className="mt-1"
                   />
                   <Label htmlFor={option.id} className="flex-1 cursor-pointer">
-                    <div className="space-y-2">
+                    <div className="flex flex-col gap-2">
                       <div className="font-semibold text-lg text-gray-900">
                         {option.name}
                       </div>
@@ -173,7 +173,7 @@ export default function DonationFormComponent() {
               Choose a preset amount or enter your own
             </CardDescription>
           </CardHeader>
-          <CardContent className="px-8 pb-8 space-y-6">
+          <CardContent className="px-8 pb-8 flex flex-col gap-6">
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
               {predefinedAmounts.map((amount) => (
                 <Button
@@ -187,7 +187,7 @@ export default function DonationFormComponent() {
                 </Button>
               ))}
             </div>
-            <div className="flex items-center space-x-3 pt-2">
+            <div className="flex items-center gap-3 pt-2">
               <Label
                 htmlFor="custom-amount"
                 className="text-xl font-medium min-w-fit"
@@ -220,10 +220,10 @@ export default function DonationFormComponent() {
           <CardContent className="px-8 pb-8">
             <RadioGroup
               value={form.frequency}
-              onValueChange={(value) =>
-                setForm({ ...form, frequency: value as any })
+              onValueChange={(value: "one-time" | "monthly" | "weekly") =>
+                setForm({ ...form, frequency: value })
               }
-              className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-8"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-8"
             >
               {["one-time", "weekly", "monthly"].map((freq) => (
                 <div
@@ -253,9 +253,9 @@ export default function DonationFormComponent() {
               We need this information to process your donation securely
             </CardDescription>
           </CardHeader>
-          <CardContent className="px-8 pb-8 space-y-6">
+          <CardContent className="px-8 pb-8 flex flex-col gap-6">
             <div className="grid gap-6 sm:grid-cols-2">
-              <div className="space-y-3">
+              <div className="flex flex-col gap-3">
                 <Label htmlFor="firstName" className="text-sm font-medium">
                   First Name *
                 </Label>
@@ -276,7 +276,7 @@ export default function DonationFormComponent() {
                   required
                 />
               </div>
-              <div className="space-y-3">
+              <div className="flex flex-col gap-3">
                 <Label htmlFor="lastName" className="text-sm font-medium">
                   Last Name *
                 </Label>
@@ -298,7 +298,7 @@ export default function DonationFormComponent() {
                 />
               </div>
             </div>
-            <div className="space-y-3">
+            <div className="flex flex-col gap-3">
               <Label htmlFor="email" className="text-sm font-medium">
                 Email Address *
               </Label>
@@ -327,7 +327,7 @@ export default function DonationFormComponent() {
           <Separator className="mb-8" />
 
           {/* Submit Button */}
-          <div className="text-center space-y-6">
+          <div className="text-center flex flex-col gap-6">
             <Button
               type="submit"
               disabled={isPending || form.amount <= 0}

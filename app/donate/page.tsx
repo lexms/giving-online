@@ -30,7 +30,7 @@ export default function DonatePage() {
       {/* Main Content */}
       <main className="py-16 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center space-y-6 mb-16">
+          <div className="text-center flex flex-col gap-6 mb-16">
             <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
               Give Generously
             </h1>

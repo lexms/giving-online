@@ -20,8 +20,8 @@ export default function HomePage() {
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
-          <div className="space-y-8">
+        <div className="max-w-4xl mx-auto text-center flex flex-col gap-12">
+          <div className="flex flex-col gap-8">
             <div className="w-24 h-24 bg-primary-100 rounded-full flex items-center justify-center mx-auto shadow-lg">
               <Heart className="h-12 w-12 text-primary-600" />
             </div>
@@ -34,7 +34,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="flex flex-col gap-8">
             <Button
               asChild
               size="lg"

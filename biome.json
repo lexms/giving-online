@@ -91,7 +91,8 @@
       "build/**/*",
       "coverage/**/*",
       "*.min.js",
-      "*.min.css"
+      "*.min.css",
+      "public/**/*.js"
     ]
   }
 }
