@@ -36,28 +36,28 @@
   "screenshots": [
     {
       "src": "/screenshots/desktop-1.png",
-      "sizes": "2880x1554",
+      "sizes": "2762x1554",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Donation form in desktop view"
     },
     {
       "src": "/screenshots/desktop-2.png",
-      "sizes": "2880x1556",
+      "sizes": "2762x1554",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Payment options in desktop view"
     },
     {
       "src": "/screenshots/mobile-1.png",
-      "sizes": "658x1418",
+      "sizes": "646x1148",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Donation form in mobile view"
     },
     {
       "src": "/screenshots/mobile-2.png",
-      "sizes": "646x1414",
+      "sizes": "646x1148",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Payment options in mobile view"
