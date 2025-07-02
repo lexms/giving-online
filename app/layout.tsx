@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import "./globals.css"
 import { Footer } from "@/components/ui/footer"
+import { PWAInstallHeader } from "@/components/ui/pwa-install-header"
 import { Toaster } from "@/components/ui/toaster"
 
 export const viewport: Viewport = {
@@ -46,6 +47,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-gray-50 flex flex-col">
+        <PWAInstallHeader />
         <main className="flex-1">{children}</main>
         <Footer />
         <Toaster />
