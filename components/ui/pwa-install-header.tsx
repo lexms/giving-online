@@ -35,20 +35,31 @@ export function PWAInstallHeader() {
         /iPad|iPhone|iPod/.test(navigator.userAgent) &&
         !navigator.userAgent.includes("Android")
       setIsIOS(isIOSDevice)
-      // On iOS, we want to show the install instructions by default
-      if (isIOSDevice) {
+      // On iOS, we want to show the install instructions by default if not installed
+      if (isIOSDevice && !isStandalonePWA()) {
         setShowInstall(true)
       }
     }
 
-    // Check if running in standalone mode (installed PWA)
-    const checkInstallation = () => {
+    // Check if running as installed PWA
+    const isStandalonePWA = () => {
+      // Check if running in standalone mode
       const isStandalone = window.matchMedia(
         "(display-mode: standalone)"
       ).matches
+      // Check if running in fullscreen mode
+      const isFullscreen = window.matchMedia(
+        "(display-mode: fullscreen)"
+      ).matches
+      // Check iOS specific standalone mode
       // @ts-ignore - navigator.standalone is only available on iOS
       const isIOSInstalled = navigator.standalone
-      setIsInstalled(isStandalone || isIOSInstalled)
+      return isStandalone || isFullscreen || isIOSInstalled
+    }
+
+    // Check if running in standalone mode (installed PWA)
+    const checkInstallation = () => {
+      setIsInstalled(isStandalonePWA())
     }
 
     // Check initial status
@@ -57,7 +68,14 @@ export function PWAInstallHeader() {
 
     // Listen for changes in display mode
     const mediaQuery = window.matchMedia("(display-mode: standalone)")
-    mediaQuery.addEventListener("change", checkInstallation)
+    const fullscreenQuery = window.matchMedia("(display-mode: fullscreen)")
+
+    const handleDisplayModeChange = () => {
+      checkInstallation()
+    }
+
+    mediaQuery.addEventListener("change", handleDisplayModeChange)
+    fullscreenQuery.addEventListener("change", handleDisplayModeChange)
 
     // Handle install prompt (won't fire on iOS)
     const handleInstallPrompt = (e: BeforeInstallPromptEvent) => {
@@ -71,7 +89,8 @@ export function PWAInstallHeader() {
     window.addEventListener("beforeinstallprompt", handleInstallPrompt)
 
     return () => {
-      mediaQuery.removeEventListener("change", checkInstallation)
+      mediaQuery.removeEventListener("change", handleDisplayModeChange)
+      fullscreenQuery.removeEventListener("change", handleDisplayModeChange)
       window.removeEventListener("beforeinstallprompt", handleInstallPrompt)
     }
   }, [isInstalled])
@@ -94,14 +113,11 @@ export function PWAInstallHeader() {
     }
   }
 
-  const handleOpenApp = () => {
-    // Get the current URL but ensure it uses HTTPS
-    const appUrl = window.location.href.replace("http://", "https://")
-    window.open(appUrl, "_blank")
-  }
+  // Hide if running as installed app
+  if (isInstalled) return null
 
   // Don't show if it's not installed and we don't have install prompt (except on iOS)
-  if (!showInstall && !isInstalled && !isIOS) return null
+  if (!showInstall && !isIOS) return null
 
   return (
     <div className="bg-primary text-primary-foreground px-4 py-2 flex items-center justify-between">
@@ -112,33 +128,13 @@ export function PWAInstallHeader() {
           className="w-8 h-8 rounded"
         />
         <span>
-          {isInstalled
-            ? "Open our app for a better experience"
-            : isIOS
-              ? "Add to Home Screen for a better experience"
-              : "Install our app for a better experience"}
+          {isIOS
+            ? "For iOS users, please add to home screen for a better experience"
+            : "Install our app for a better experience"}
         </span>
       </div>
       <div className="flex items-center gap-2">
-        {isInstalled ? (
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={handleOpenApp}
-            className="whitespace-nowrap"
-          >
-            Open App
-          </Button>
-        ) : isIOS ? (
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={() => {}}
-            className="whitespace-nowrap"
-          >
-            Tap ⋯ then "Add to Home Screen"
-          </Button>
-        ) : (
+        {!isIOS && (
           <Button
             variant="secondary"
             size="sm"
