@@ -7,20 +7,42 @@ import { Button } from "./button"
 export function PWAInstallHeader() {
   const [showInstall, setShowInstall] = useState(false)
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
+  const [isInstalled, setIsInstalled] = useState(false)
 
   useEffect(() => {
-    const handler = (e: any) => {
-      e.preventDefault()
-      setDeferredPrompt(e)
-      setShowInstall(true)
+    // Check if running in standalone mode (installed PWA)
+    const checkInstallation = () => {
+      const isStandalone = window.matchMedia(
+        "(display-mode: standalone)"
+      ).matches
+      // @ts-ignore - navigator.standalone is only available on iOS
+      const isIOSInstalled = navigator.standalone
+      setIsInstalled(isStandalone || isIOSInstalled)
     }
 
-    window.addEventListener("beforeinstallprompt", handler)
+    // Check initial installation status
+    checkInstallation()
+
+    // Listen for changes in display mode
+    const mediaQuery = window.matchMedia("(display-mode: standalone)")
+    mediaQuery.addEventListener("change", checkInstallation)
+
+    // Handle install prompt
+    const handleInstallPrompt = (e: any) => {
+      e.preventDefault()
+      if (!isInstalled) {
+        setDeferredPrompt(e)
+        setShowInstall(true)
+      }
+    }
+
+    window.addEventListener("beforeinstallprompt", handleInstallPrompt)
 
     return () => {
-      window.removeEventListener("beforeinstallprompt", handler)
+      mediaQuery.removeEventListener("change", checkInstallation)
+      window.removeEventListener("beforeinstallprompt", handleInstallPrompt)
     }
-  }, [])
+  }, [isInstalled])
 
   const handleInstall = async () => {
     if (!deferredPrompt) return
@@ -30,10 +52,13 @@ export function PWAInstallHeader() {
 
     if (outcome === "accepted") {
       setShowInstall(false)
+      setIsInstalled(true)
+      setDeferredPrompt(null)
     }
   }
 
-  if (!showInstall) return null
+  // Don't show if already installed or if install prompt isn't available
+  if (isInstalled || !showInstall) return null
 
   return (
     <div className="bg-primary text-primary-foreground px-4 py-2 flex items-center justify-between">
