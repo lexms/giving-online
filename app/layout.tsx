@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import "./globals.css"
+import { Footer } from "@/components/ui/footer"
 import { Toaster } from "@/components/ui/toaster"
 
 export const viewport: Viewport = {
@@ -44,8 +45,9 @@ export default function RootLayout({
           content="Hillsong Berlin Giving"
         />
       </head>
-      <body className="min-h-screen bg-gray-50">
-        {children}
+      <body className="min-h-screen bg-gray-50 flex flex-col">
+        <main className="flex-1">{children}</main>
+        <Footer />
         <Toaster />
       </body>
     </html>

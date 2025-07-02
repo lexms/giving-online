@@ -8,6 +8,9 @@ const withPWA = require("next-pwa")({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // No experimental config needed for App Router in Next.js 14
+  async rewrites() {
+    return []
+  },
 }
 
 module.exports = withPWA(nextConfig)

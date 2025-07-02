@@ -60,7 +60,28 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "none",
+            color: "inherit",
+            a: {
+              color: "inherit",
+              textDecoration: "none",
+              fontWeight: "500",
+            },
+            strong: {
+              color: "inherit",
+            },
+            hr: {
+              borderColor: "inherit",
+              marginTop: "2em",
+              marginBottom: "2em",
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 }

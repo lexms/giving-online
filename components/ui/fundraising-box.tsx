@@ -1,59 +1,37 @@
 "use client"
 
-import Script from "next/script"
-import { useEffect, useRef } from "react"
+import { useEffect, useState } from "react"
 
 interface FundraisingBoxProps {
   hash: string
-  onSuccess?: (data: any) => void
-  onError?: (error: any) => void
 }
 
-export function FundraisingBox({
-  hash,
-  onSuccess,
-  onError,
-}: FundraisingBoxProps) {
-  const containerRef = useRef<HTMLDivElement>(null)
+export function FundraisingBox({ hash }: FundraisingBoxProps) {
+  const [height, setHeight] = useState<number>(1500) // fallback height
 
   useEffect(() => {
-    // Clean up function to remove any FundraisingBox elements when component unmounts
-    return () => {
-      if (containerRef.current) {
-        containerRef.current.innerHTML = ""
+    const handleMessage = (event: MessageEvent) => {
+      if (
+        event.origin === "https://secure.fundraisingbox.com" &&
+        event.data &&
+        typeof event.data.height === "number"
+      ) {
+        setHeight(event.data.height)
       }
     }
+
+    window.addEventListener("message", handleMessage)
+    return () => window.removeEventListener("message", handleMessage)
   }, [])
 
-  const handleScriptLoad = () => {
-    if (typeof window !== "undefined" && window.FundraisingBox) {
-      window.FundraisingBox.init({
-        hash,
-        onSuccess: (data: any) => {
-          console.log("Payment successful", data)
-          onSuccess?.(data)
-        },
-        onError: (error: any) => {
-          console.error("Payment failed", error)
-          onError?.(error)
-        },
-      })
-    }
-  }
-
   return (
-    <>
-      <Script
-        src="https://secure.fundraisingbox.com/app/paymentJS"
-        onLoad={handleScriptLoad}
-        strategy="lazyOnload"
-      />
-      <div
-        ref={containerRef}
-        id="fundraisingbox-container"
-        className="w-full"
-      />
-    </>
+    <iframe
+      src={`https://secure.fundraisingbox.com/app/payment?hash=${hash}#https%3A%2F%2Fgivingonline.eu%2Fberlin%2F%23give`}
+      className="w-full border-none"
+      height={`${height + 100}px`}
+      title="Donation Form"
+      allow="payment"
+    />
   )
 }
 
@@ -61,11 +39,7 @@ export function FundraisingBox({
 declare global {
   interface Window {
     FundraisingBox?: {
-      init: (config: {
-        hash: string
-        onSuccess?: (data: any) => void
-        onError?: (error: any) => void
-      }) => void
+      init: (config: { hash: string }) => void
     }
   }
 }
