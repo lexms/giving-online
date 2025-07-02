@@ -4,9 +4,27 @@ import { X } from "lucide-react"
 import { useEffect, useState } from "react"
 import { Button } from "./button"
 
+// Define the BeforeInstallPromptEvent interface
+interface BeforeInstallPromptEvent extends Event {
+  readonly platforms: string[]
+  readonly userChoice: Promise<{
+    outcome: "accepted" | "dismissed"
+    platform: string
+  }>
+  prompt(): Promise<void>
+}
+
+// Extend the WindowEventMap interface
+declare global {
+  interface WindowEventMap {
+    beforeinstallprompt: BeforeInstallPromptEvent
+  }
+}
+
 export function PWAInstallHeader() {
   const [showInstall, setShowInstall] = useState(false)
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
+  const [deferredPrompt, setDeferredPrompt] =
+    useState<BeforeInstallPromptEvent | null>(null)
   const [isInstalled, setIsInstalled] = useState(false)
 
   useEffect(() => {
@@ -28,7 +46,7 @@ export function PWAInstallHeader() {
     mediaQuery.addEventListener("change", checkInstallation)
 
     // Handle install prompt
-    const handleInstallPrompt = (e: any) => {
+    const handleInstallPrompt = (e: BeforeInstallPromptEvent) => {
       e.preventDefault()
       if (!isInstalled) {
         setDeferredPrompt(e)
