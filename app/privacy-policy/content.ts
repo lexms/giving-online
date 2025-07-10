@@ -106,13 +106,9 @@ This website uses the consent technology of Usercentrics to obtain your consent 
 
 ## 5. Plug-ins and Tools
 
-### Google Fonts
+### System Fonts
 
-To ensure that fonts used on this website are uniform, this website uses so-called Google Fonts provided by Google. When you access a page on our website, your browser will load the required fonts into your browser cache to correctly display text and fonts.
-
-### Font Awesome
-
-This page uses Font Awesome for the uniform representation of fonts and symbols. Provider is Fonticons, Inc. 6 Porter Road Apartment 3R, Cambridge, Massachusetts, USA.
+This website uses system fonts that are already installed on your device. This means no external font services are used, and no font files are loaded from external servers. This approach ensures better privacy as no data is transmitted to third-party font providers.
 
 ## 6. eCommerce and payment service providers
 

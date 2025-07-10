@@ -1,7 +1,7 @@
 {
-  "name": "Hillsong Berlin Giving",
+  "name": "Giving Platform",
   "short_name": "Giving",
-  "description": "Secure online giving platform for Hillsong Berlin",
+  "description": "Secure online giving platform for Giving Platform",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",

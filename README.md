@@ -1,7 +1,7 @@
-# Hillsong Berlin Giving App
+# Giving Platform
 
-A Progressive Web App (PWA) built with Next.js 14 for donations to Hillsong Berlin.
+A Progressive Web App (PWA) built with Next.js 14 for donations to Giving Platform.
 
 ## License
 
-© 2025 Hillsong Berlin. All rights reserved.
+© 2025 Giving Platform. All rights reserved.
