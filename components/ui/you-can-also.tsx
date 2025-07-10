@@ -19,15 +19,44 @@ export function YouCanAlso() {
 
   const handleCopy = async (value: string, label: string) => {
     try {
-      await navigator.clipboard.writeText(value)
-      toast({
-        title: "Copied!",
-        description: `${label} has been copied to clipboard`,
-      })
-    } catch (_err) {
+      // Check if we're in a secure context
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(value)
+        toast({
+          title: "Copied!",
+          description: `${label} has been copied to clipboard`,
+        })
+      } else {
+        // Fallback for non-secure contexts
+        const textArea = document.createElement("textarea")
+        textArea.value = value
+        textArea.style.position = "fixed"
+        textArea.style.left = "-999999px"
+        textArea.style.top = "-999999px"
+        document.body.appendChild(textArea)
+        textArea.focus()
+        textArea.select()
+
+        try {
+          document.execCommand('copy')
+          textArea.remove()
+          toast({
+            title: "Copied!",
+            description: `${label} has been copied to clipboard`,
+          })
+        } catch (error) {
+          textArea.remove()
+          toast({
+            title: "Failed to copy",
+            description: "Please try manually selecting and copying the text",
+            variant: "destructive",
+          })
+        }
+      }
+    } catch (err) {
       toast({
         title: "Failed to copy",
-        description: "Please try again",
+        description: "Please try manually selecting and copying the text",
         variant: "destructive",
       })
     }
