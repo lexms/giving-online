@@ -91,6 +91,7 @@ export function YouCanAlso() {
                   {detail.label}:
                 </dt>
                 <dd className="font-mono text-gray-900 flex items-center gap-2">
+                  {detail.value}
                   <Button
                     variant="ghost"
                     size="icon"
@@ -100,7 +101,7 @@ export function YouCanAlso() {
                     <Copy className="size-4" />
                     <span className="sr-only">Copy {detail.label}</span>
                   </Button>
-                  {detail.value}
+
                 </dd>
               </div>
             ))}

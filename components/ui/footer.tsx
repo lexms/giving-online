@@ -8,13 +8,13 @@ export function Footer() {
       <div className="flex flex-col max-w-6xl mx-auto px-6 py-8 gap-4 text-center">
         <div className="flex flex-col md:flex-row justify-center gap-8 mb-4 flex-wrap">
           <a
-            href="/imprint"
+            href="https://givingonline.eu/imprint/"
             className="text-gray-600 hover:text-gray-900 transition-colors"
           >
             Imprint
           </a>
           <a
-            href="/privacy-policy"
+            href="https://givingonline.eu/privacy-policy/"
             className="text-gray-600 hover:text-gray-900 transition-colors"
           >
             Privacy Policy

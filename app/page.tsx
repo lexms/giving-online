@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Banner */}
-      <div className="relative h-[80vh] min-h-[600px] bg-gray-900">
+      <div className="relative h-[100vh] bg-gray-900">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -89,6 +89,16 @@ export default function HomePage() {
             </div>
           </div>
 
+         
+
+          {/* FundraisingBox Form */}
+          <div className="bg-white rounded-lg shadow-lg p-4 md:p-8" id="give">
+            <h2 className="text-2xl font-bold text-center mb-8">
+              Make Your Contribution
+            </h2>
+            <FundraisingBox hash={FUNDRAISING_BOX_HASH} />
+          </div>
+
           <div className="bg-white rounded-lg shadow-lg p-8">
             <p className="text-gray-600 leading-relaxed text-center">
               Your giving is fully tax-deductible, a giving-statement for your
@@ -97,14 +107,6 @@ export default function HomePage() {
               tax, if you would like to know more about how to opt out of the
               church tax system, please let the team know.
             </p>
-          </div>
-
-          {/* FundraisingBox Form */}
-          <div className="bg-white rounded-lg shadow-lg p-4 md:p-8" id="give">
-            <h2 className="text-2xl font-bold text-center mb-8">
-              Make Your Contribution
-            </h2>
-            <FundraisingBox hash={FUNDRAISING_BOX_HASH} />
           </div>
 
           <YouCanAlso />

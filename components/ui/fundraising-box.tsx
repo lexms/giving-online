@@ -28,7 +28,7 @@ export function FundraisingBox({ hash }: FundraisingBoxProps) {
     <iframe
       src={`https://secure.fundraisingbox.com/app/payment?hash=${hash}#https%3A%2F%2Fgivingonline.eu%2Fberlin%2F%23give`}
       className="w-full border-none"
-      height={`${height + 100}px`}
+      height={`${height + 110}px`}
       title="Donation Form"
       allow="payment"
     />
