@@ -16,7 +16,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/images/hero-banner.jpg')",
+            backgroundImage: "url('/images/hero-banner.webp')",
             backgroundPosition: "center",
             filter: "brightness(0.5)",
           }}
