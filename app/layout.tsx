@@ -13,12 +13,12 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Giving Platform",
-  description: "Giving Platform",
+  title: "Giving",
+  description: "Giving",
   manifest: "/manifest.json",
   appleWebApp: {
     statusBarStyle: "default",
-    title: "Giving Platform",
+    title: "Giving",
   },
 }
 

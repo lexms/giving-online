@@ -1,7 +1,7 @@
 {
-  "name": "Giving Platform",
+  "name": "Giving",
   "short_name": "Giving",
-  "description": "Secure online giving platform for Giving Platform",
+  "description": "Changing perceptions about Jesus & His Church, Creating a new mindset through the Gospel, Contributing to the wellbeing of Society",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",
@@ -39,28 +39,28 @@
       "sizes": "2762x1554",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Donation form in desktop view"
+      "label": "Giving"
     },
     {
       "src": "/screenshots/desktop-2.png",
       "sizes": "2762x1554",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Payment options in desktop view"
+      "label": "Giving"
     },
     {
       "src": "/screenshots/mobile-1.png",
       "sizes": "646x1148",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Donation form in mobile view"
+      "label": "Giving"
     },
     {
       "src": "/screenshots/mobile-2.png",
       "sizes": "646x1148",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Payment options in mobile view"
+      "label": "Giving"
     }
   ]
 }

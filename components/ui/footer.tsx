@@ -31,7 +31,7 @@ export function Footer() {
           </button>
         </div>
         <p className="text-muted-foreground text-base">
-          © {year} Giving Platform. All rights reserved.
+          © {year} Giving. All rights reserved.
         </p>
       </div>
     </footer>
