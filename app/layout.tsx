@@ -43,13 +43,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Giving Platform" />
       </head>
-      <script
-        id="usercentrics-cmp"
-        async
-        data-eu-mode="true"
-        data-settings-id="PMhw0hdM1B3hC2"
-        src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"
-      />
+
       <body className="min-h-screen bg-gray-50 flex flex-col">
         <PWAInstallHeader />
         <main className="flex-1">{children}</main>

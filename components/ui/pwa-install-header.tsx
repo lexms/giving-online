@@ -69,45 +69,37 @@ function PWAInstallHeaderIOS() {
   if (isInstalled || !showInstall) return null
 
   return (
-    <>
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-md z-50 bg-primary text-primary-foreground px-4 py-2 flex items-center justify-between rounded-lg shadow-lg border border-primary/20">
-        <div className="flex items-center gap-4">
-          <img
-            src="/icons/web-app-manifest-192x192.png"
-            alt="App Icon"
-            className="w-8 h-8 rounded"
-          />
-          <span className="text-sm">
-            For iOS users, please add to home screen for a better experience
-          </span>
-        </div>
-        <div className="flex items-center gap-2">
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={() => setShowCard(true)}
-            className="whitespace-nowrap"
-          >
-            How to add to Home Screen
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setShowInstall(false)}
-            className="text-primary-foreground"
-          >
-            <X className="h-4 w-4" />
-          </Button>
-        </div>
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-md z-50 bg-primary text-primary-foreground px-4 py-2 flex items-center justify-between rounded-lg shadow-lg border border-primary/20">
+      <div className="flex items-center gap-4">
+        <img
+          src="/icons/web-app-manifest-192x192.png"
+          alt="App Icon"
+          className="w-8 h-8 rounded"
+        />
+        <span className="text-sm">
+          For iOS users, please add to home screen for a better experience
+        </span>
       </div>
-      <IOSAddToHomeScreenCard open={showCard} onClose={() => setShowCard(false)} />
-    </>
+      <div className="flex items-center gap-2">
+        {/* Replace How to? button and card logic with SheetTrigger */}
+        <IOSAddToHomeScreenCard />
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setShowInstall(false)}
+          className="text-primary-foreground"
+        >
+          <X className="h-4 w-4" />
+        </Button>
+      </div>
+    </div>
   )
 }
 
 function PWAInstallHeaderAndroid() {
   const [showInstall, setShowInstall] = useState(false)
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null)
+  const [deferredPrompt, setDeferredPrompt] =
+    useState<BeforeInstallPromptEvent | null>(null)
   const [isInstalled, setIsInstalled] = useState(false)
 
   useEffect(() => {

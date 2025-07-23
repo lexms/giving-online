@@ -38,7 +38,7 @@ export function YouCanAlso() {
         textArea.select()
 
         try {
-          document.execCommand('copy')
+          document.execCommand("copy")
           textArea.remove()
           toast({
             title: "Copied!",
@@ -101,7 +101,6 @@ export function YouCanAlso() {
                     <Copy className="size-4" />
                     <span className="sr-only">Copy {detail.label}</span>
                   </Button>
-
                 </dd>
               </div>
             ))}

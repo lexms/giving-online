@@ -89,8 +89,6 @@ export default function HomePage() {
             </div>
           </div>
 
-         
-
           {/* FundraisingBox Form */}
           <div className="bg-white rounded-lg shadow-lg p-4 md:p-8" id="give">
             <h2 className="text-2xl font-bold text-center mb-8">
