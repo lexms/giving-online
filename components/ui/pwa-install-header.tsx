@@ -43,7 +43,6 @@ function isStandalonePWA() {
 function PWAInstallHeaderIOS() {
   const [showInstall, setShowInstall] = useState(false)
   const [isInstalled, setIsInstalled] = useState(false)
-  const [showCard, setShowCard] = useState(false)
 
   useEffect(() => {
     setShowInstall(!isStandalonePWA())
@@ -69,19 +68,16 @@ function PWAInstallHeaderIOS() {
   if (isInstalled || !showInstall) return null
 
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-md z-50 bg-primary text-primary-foreground px-4 py-2 flex items-center justify-between rounded-lg shadow-lg border border-primary/20">
+    <div className="bg-primary text-primary-foreground px-4 py-2 flex items-center justify-between">
       <div className="flex items-center gap-4">
         <img
           src="/icons/web-app-manifest-192x192.png"
           alt="App Icon"
           className="w-8 h-8 rounded"
         />
-        <span className="text-sm">
-          For iOS users, please add to home screen for a better experience
-        </span>
+        <span>For iOS users, please add to home screen for a better experience</span>
       </div>
       <div className="flex items-center gap-2">
-        {/* Replace How to? button and card logic with SheetTrigger */}
         <IOSAddToHomeScreenCard />
         <Button
           variant="ghost"
