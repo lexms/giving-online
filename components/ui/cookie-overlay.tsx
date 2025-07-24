@@ -63,7 +63,7 @@ export function CookieOverlay() {
                   We take your privacy seriously. This site uses only essential
                   cookies to ensure the donation process works properly.{" "}
                   <span className="font-medium text-gray-700">
-                    We do not use anytracking or marketing cookies.
+                    We do not use any tracking or marketing cookies.
                   </span>
                 </p>
               </div>
