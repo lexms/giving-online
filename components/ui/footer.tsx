@@ -19,16 +19,6 @@ export function Footer() {
           >
             Privacy Policy
           </a>
-          <button
-            type="button"
-            onClick={() => {
-              // @ts-ignore - Usercentrics types not available
-              window.UC_UI?.showSecondLayer()
-            }}
-            className="text-gray-600 hover:text-gray-900 transition-colors cursor-pointer"
-          >
-            Cookie Preferences
-          </button>
         </div>
         <p className="text-muted-foreground text-base">
           © {year} Giving. All rights reserved.

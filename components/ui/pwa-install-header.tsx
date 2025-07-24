@@ -75,7 +75,9 @@ function PWAInstallHeaderIOS() {
           alt="App Icon"
           className="w-8 h-8 rounded"
         />
-        <span>For iOS users, please add to home screen for a better experience</span>
+        <span>
+          For iOS users, please add to home screen for a better experience
+        </span>
       </div>
       <div className="flex items-center gap-2">
         <IOSAddToHomeScreenCard />

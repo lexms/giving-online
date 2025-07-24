@@ -42,50 +42,53 @@ export default function HomePage() {
       {/* Main Content */}
       <div className="bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="flex flex-col max-w-6xl mx-auto px-4 py-16 gap-8">
-          <h2 className="text-2xl font-bold mb-4 text-center">
-            OPERATING AND ADVANCING
-          </h2>
-          {/* Message Sections */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Tithe & Offerings */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-4">Tithe & Offerings</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Tithes & Offerings operate the ongoing work of the local church.
-                By bringing our tithes & our offerings to God's House we put God
-                first and honour who He is in our lives.
-              </p>
+          <div className="flex flex-col gap-8">
+            <h2 className="text-2xl mt-4 font-bold text-center">
+              Partnering in the Mission
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <h2 className="text-2xl font-bold mb-4">Tithe & Offerings</h2>
+                <p className="text-gray-600 leading-relaxed">
+                  Tithes & Offerings operate the ongoing work of the local
+                  church. By bringing our tithes & our offerings to God's House
+                  we put God first and honour who He is in our lives.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <h2 className="text-2xl font-bold mb-4">Heart for the House</h2>
+                <p className="text-gray-600 leading-relaxed">
+                  Heart for the House is an annual sacrificial giving that
+                  advances the church. It's a time of prayer and listening to
+                  God's voice.
+                </p>
+              </div>
             </div>
 
-            {/* Heart for the House */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-4">Heart for the House</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Heart for the House is an annual sacrificial giving that
-                advances the church. It's a time of prayer and listening to
-                God's voice.
-              </p>
-            </div>
+            <h2 className="text-2xl mt-4 font-bold text-center">
+              Advancing the mission
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <h2 className="text-2xl font-bold mb-4">Kingdom Builders</h2>
+                <p className="text-gray-600 leading-relaxed">
+                  Kingdom Builders are the financial pillars of our church, who
+                  feel called by God to advance the church financially
+                  throughout the year, above their normal tithes & offerings. To
+                  know more about Kingdom Builders, please contact our team.
+                </p>
+              </div>
 
-            {/* Kingdom Builders */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-4">Kingdom Builders</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Kingdom Builders are the financial pillars of our church, who
-                feel called by God to advance the church financially throughout
-                the year, above their normal tithes & offerings. To know more
-                about Kingdom Builders, please contact our team.
-              </p>
-            </div>
-
-            {/* Building Fund */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-4">Building Fund</h2>
-              <p className="text-gray-600 leading-relaxed">
-                The Building Fund is an initiative to move towards owning our
-                own facilities, establishing the Church for the Generations to
-                come.
-              </p>
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <h2 className="text-2xl font-bold mb-4">Building Fund</h2>
+                <p className="text-gray-600 leading-relaxed">
+                  The Building Fund is an initiative to move towards owning our
+                  own facilities, establishing the Church for the Generations to
+                  come.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -98,6 +101,9 @@ export default function HomePage() {
           </div>
 
           <div className="bg-white rounded-lg shadow-lg p-8">
+            <h3 className="text-xl font-bold text-center mb-4">
+              Tax Deductibility
+            </h3>
             <p className="text-gray-600 leading-relaxed text-center">
               Your giving is fully tax-deductible, a giving-statement for your
               tax-return will be posted to you at the beginning of the new year.

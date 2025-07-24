@@ -3,6 +3,7 @@ import "./globals.css"
 import { Footer } from "@/components/ui/footer"
 import { PWAInstallHeader } from "@/components/ui/pwa-install-header"
 import { Toaster } from "@/components/ui/toaster"
+import { CookieOverlay } from "@/components/ui/cookie-overlay"
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -49,6 +50,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <Toaster />
+        <CookieOverlay />
       </body>
     </html>
   )
