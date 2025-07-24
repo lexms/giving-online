@@ -10,12 +10,14 @@ export function Footer() {
           <a
             href="https://givingonline.eu/imprint/"
             className="text-gray-600 hover:text-gray-900 transition-colors"
+            target="_blank"
           >
             Imprint
           </a>
           <a
             href="https://givingonline.eu/privacy-policy/"
             className="text-gray-600 hover:text-gray-900 transition-colors"
+            target="_blank"
           >
             Privacy Policy
           </a>
