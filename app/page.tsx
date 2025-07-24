@@ -1,9 +1,8 @@
 "use client"
 
-import { year } from "@/components/const"
 import { FundraisingBox } from "@/components/ui/fundraising-box"
 import { YouCanAlso } from "@/components/ui/you-can-also"
-import { Church, Heart } from "lucide-react"
+import { Church, HeartHandshake, Crown, Home } from "lucide-react"
 
 // FundraisingBox hash from your URL
 const FUNDRAISING_BOX_HASH = "0s4qe4vszf7y7jfh"
@@ -49,7 +48,10 @@ export default function HomePage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-lg shadow-lg p-8">
-                <h2 className="text-2xl font-bold mb-4">Tithe & Offerings</h2>
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <Church className="w-6 h-6 text-[#448989]" />
+                  Tithe & Offerings
+                </h2>
                 <p className="text-gray-600 leading-relaxed">
                   Tithes & Offerings operate the ongoing work of the local
                   church. By bringing our tithes & our offerings to God's House
@@ -58,7 +60,10 @@ export default function HomePage() {
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-8">
-                <h2 className="text-2xl font-bold mb-4">Heart for the House</h2>
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <HeartHandshake className="w-6 h-6 text-[#448989]" />
+                  Heart for the House
+                </h2>
                 <p className="text-gray-600 leading-relaxed">
                   Heart for the House is an annual sacrificial giving that
                   advances the church. It's a time of prayer and listening to
@@ -72,7 +77,10 @@ export default function HomePage() {
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-lg shadow-lg p-8">
-                <h2 className="text-2xl font-bold mb-4">Kingdom Builders</h2>
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <Crown className="w-6 h-6 text-[#448989]" />
+                  Kingdom Builders
+                </h2>
                 <p className="text-gray-600 leading-relaxed">
                   Kingdom Builders are the financial pillars of our church, who
                   feel called by God to advance the church financially
@@ -82,7 +90,10 @@ export default function HomePage() {
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-8">
-                <h2 className="text-2xl font-bold mb-4">Building Fund</h2>
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <Home className="w-6 h-6 text-[#448989]" />
+                  Building Fund
+                </h2>
                 <p className="text-gray-600 leading-relaxed">
                   The Building Fund is an initiative to move towards owning our
                   own facilities, establishing the Church for the Generations to
