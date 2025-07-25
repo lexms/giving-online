@@ -3,6 +3,7 @@
 import { FundraisingBox } from "@/components/ui/fundraising-box"
 import { YouCanAlso } from "@/components/ui/you-can-also"
 import { Church, HeartHandshake, Crown, Home } from "lucide-react"
+import Image from "next/image"
 
 // FundraisingBox hash from your URL
 const FUNDRAISING_BOX_HASH = "0s4qe4vszf7y7jfh"
@@ -21,6 +22,17 @@ export default function HomePage() {
           }}
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          {/* Giving Logo */}
+          <div className="mb-8">
+            <Image
+              src="/images/giving-LogoOnly-white.svg"
+              alt="Giving Logo"
+              width={80}
+              height={52}
+              className="mx-auto"
+              priority
+            />
+          </div>
           <h1 className="text-6xl md:text-7xl font-bold text-white mb-8">
             Be a part of the Mission
           </h1>
