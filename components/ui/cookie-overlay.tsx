@@ -60,12 +60,10 @@ export function CookieOverlay() {
             : "translate-y-full opacity-0"
       }`}
     >
-      {/* Backdrop blur effect */}
-      <div className="absolute inset-0 bg-black/5 backdrop-blur-sm" />
 
       {/* Main container */}
-      <div className="relative bg-white/95 backdrop-blur-md border-t border-gray-200/80 shadow-2xl">
-        <div className="max-w-6xl mx-auto px-4 py-3">
+      <div className="relative bg-white/95 border-t border-gray-200/80 shadow-2xl">
+        <div className="max-w-6xl mx-auto px-3 py-2">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
             {/* Content */}
             <div className="flex-1 min-w-0">
