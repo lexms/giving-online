@@ -1,6 +1,5 @@
 "use client"
 
-import { Cookie, Info, Shield, X } from "lucide-react"
 import { useEffect, useState } from "react"
 import { Button } from "./button"
 
@@ -12,7 +11,7 @@ export function CookieOverlay() {
   useEffect(() => {
     // Check if user has already dismissed the cookie notice
     const hasDismissed = localStorage.getItem("cookie-notice-dismissed")
-    // if (hasDismissed) return
+    if (hasDismissed) return
 
     // Function to handle scroll events
     const handleScroll = () => {
@@ -68,14 +67,10 @@ export function CookieOverlay() {
         <div className="max-w-6xl mx-auto px-4 py-3">
           <div className="flex items-center gap-3">
             {/* Icon inline with title */}
-           
 
             {/* Text and buttons inline */}
             <div className="flex-1 min-w-0">
-            
               <span className="text-sm font-semibold text-gray-900 mr-2">
-
-
                 Privacy & Cookies:
               </span>
               <span className="text-xs text-gray-600">
