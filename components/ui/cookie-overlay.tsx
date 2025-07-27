@@ -7,18 +7,36 @@ import { Cookie, X, Shield, Info } from "lucide-react"
 export function CookieOverlay() {
   const [isVisible, setIsVisible] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
+  const [hasScrolled, setHasScrolled] = useState(false)
 
   useEffect(() => {
     // Check if user has already dismissed the cookie notice
     const hasDismissed = localStorage.getItem("cookie-notice-dismissed")
-    if (!hasDismissed) {
-      // Small delay for smooth entrance animation
-      const timer = setTimeout(() => {
-        setIsVisible(true)
-      }, 500)
-      return () => clearTimeout(timer)
+    // if (hasDismissed) return
+
+    // Function to handle scroll events
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const scrollThreshold = 200 // Show after scrolling 200px
+      
+      if (scrollY > scrollThreshold && !hasScrolled) {
+        setHasScrolled(true)
+        // Small delay for smooth entrance animation
+        const timer = setTimeout(() => {
+          setIsVisible(true)
+        }, 500)
+        return () => clearTimeout(timer)
+      }
     }
-  }, [])
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [hasScrolled])
 
   const handleDismiss = () => {
     setIsAnimating(true)
@@ -29,12 +47,17 @@ export function CookieOverlay() {
     }, 300)
   }
 
-  if (!isVisible) return null
+  // Don't render anything until we've scrolled
+  if (!hasScrolled) return null
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
-        isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"
+      className={`fixed bottom-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        isAnimating 
+          ? "translate-y-full opacity-0" 
+          : isVisible 
+            ? "translate-y-0 opacity-100" 
+            : "translate-y-full opacity-0"
       }`}
     >
       {/* Backdrop blur effect */}
