@@ -1,9 +1,9 @@
 "use client"
 
+import { Church, Crown, HeartHandshake, Home } from "lucide-react"
+import Image from "next/image"
 import { FundraisingBox } from "@/components/ui/fundraising-box"
 import { YouCanAlso } from "@/components/ui/you-can-also"
-import { Church, HeartHandshake, Crown, Home } from "lucide-react"
-import Image from "next/image"
 
 // FundraisingBox hash from your URL
 const FUNDRAISING_BOX_HASH = "0s4qe4vszf7y7jfh"

@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { Cookie, Info, Shield, X } from "lucide-react"
+import { useEffect, useState } from "react"
 import { Button } from "./button"
-import { Cookie, X, Shield, Info } from "lucide-react"
 
 export function CookieOverlay() {
   const [isVisible, setIsVisible] = useState(false)
@@ -18,7 +18,7 @@ export function CookieOverlay() {
     const handleScroll = () => {
       const scrollY = window.scrollY
       const scrollThreshold = 200 // Show after scrolling 200px
-      
+
       if (scrollY > scrollThreshold && !hasScrolled) {
         setHasScrolled(true)
         // Small delay for smooth entrance animation
@@ -30,11 +30,11 @@ export function CookieOverlay() {
     }
 
     // Add scroll event listener
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener("scroll", handleScroll, { passive: true })
 
     // Cleanup
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener("scroll", handleScroll)
     }
   }, [hasScrolled])
 
@@ -53,10 +53,10 @@ export function CookieOverlay() {
   return (
     <div
       className={`fixed bottom-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-        isAnimating 
-          ? "translate-y-full opacity-0" 
-          : isVisible 
-            ? "translate-y-0 opacity-100" 
+        isAnimating
+          ? "translate-y-full opacity-0"
+          : isVisible
+            ? "translate-y-0 opacity-100"
             : "translate-y-full opacity-0"
       }`}
     >

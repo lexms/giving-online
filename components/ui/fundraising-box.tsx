@@ -7,7 +7,10 @@ interface FundraisingBoxProps {
   fullHeight?: boolean
 }
 
-export function FundraisingBox({ hash, fullHeight = false }: FundraisingBoxProps) {
+export function FundraisingBox({
+  hash,
+  fullHeight = false,
+}: FundraisingBoxProps) {
   const [height, setHeight] = useState<number>(1500) // fallback height
 
   useEffect(() => {
@@ -38,7 +41,7 @@ export function FundraisingBox({ hash, fullHeight = false }: FundraisingBoxProps
   return (
     <iframe
       src={`https://secure.fundraisingbox.com/app/payment?hash=${hash}#https%3A%2F%2Fgivingonline.eu%2Fberlin%2F%23give`}
-      className={`w-full border-none ${fullHeight ? 'h-full' : ''}`}
+      className={`w-full border-none ${fullHeight ? "h-full" : ""}`}
       style={{ height: getFullHeight() }}
       title="Donation Form"
       allow="payment"

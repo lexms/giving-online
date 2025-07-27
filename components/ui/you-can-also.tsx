@@ -1,5 +1,5 @@
-import { useToast } from "@/hooks/use-toast"
 import { Copy } from "lucide-react"
+import { useToast } from "@/hooks/use-toast"
 import { Button } from "./button"
 
 interface BankDetails {

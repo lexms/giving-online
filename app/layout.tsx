@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next"
 import "./globals.css"
+import { CookieOverlay } from "@/components/ui/cookie-overlay"
 import { Footer } from "@/components/ui/footer"
 import { PWAInstallHeader } from "@/components/ui/pwa-install-header"
 import { Toaster } from "@/components/ui/toaster"
-import { CookieOverlay } from "@/components/ui/cookie-overlay"
 
 export const viewport: Viewport = {
   width: "device-width",

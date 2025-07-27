@@ -1,8 +1,6 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
+  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
@@ -13,9 +11,9 @@
       "complexity": {
         "recommended": true,
         "noExtraBooleanCast": "error",
-        "noMultipleSpacesInRegularExpressionLiterals": "error",
         "noUselessCatch": "error",
-        "noUselessTypeConstraint": "error"
+        "noUselessTypeConstraint": "error",
+        "noAdjacentSpacesInRegex": "error"
       },
       "correctness": {
         "recommended": true,
@@ -70,29 +68,27 @@
     }
   },
   "files": {
-    "include": [
-      "app/**/*",
-      "components/**/*",
-      "features/**/*",
-      "lib/**/*",
-      "server/**/*",
-      "types/**/*",
-      "*.js",
-      "*.jsx",
-      "*.ts",
-      "*.tsx",
-      "*.json"
-    ],
-    "ignore": [
-      ".next/**/*",
-      "node_modules/**/*",
-      ".git/**/*",
-      "dist/**/*",
-      "build/**/*",
-      "coverage/**/*",
-      "*.min.js",
-      "*.min.css",
-      "public/**/*.js"
+    "includes": [
+      "**/app/**/*",
+      "**/components/**/*",
+      "**/features/**/*",
+      "**/lib/**/*",
+      "**/server/**/*",
+      "**/types/**/*",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.json",
+      "!**/.next/**/*",
+      "!**/node_modules/**/*",
+      "!**/.git/**/*",
+      "!**/dist/**/*",
+      "!**/build/**/*",
+      "!**/coverage/**/*",
+      "!**/*.min.js",
+      "!**/*.min.css",
+      "!**/public/**/*.js"
     ]
   }
 }
