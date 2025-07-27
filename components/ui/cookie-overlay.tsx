@@ -66,29 +66,23 @@ export function CookieOverlay() {
       {/* Main container - much more compact */}
       <div className="relative bg-white/95 backdrop-blur-md border-t border-gray-200/80 shadow-2xl">
         <div className="max-w-6xl mx-auto px-4 py-3">
-          <div className="flex items-center gap-3">
-            {/* Icon inline with title */}
-           
-
-            {/* Text and buttons inline */}
+          <div className="flex flex-row lg:flex-row gap-3">
+            {/* Text content */}
             <div className="flex-1 min-w-0">
-            
-              <span className="text-sm font-semibold text-gray-900 mr-2">
-
-
+              <span className="text-sm font-semibold text-gray-900 mr-2 leading-[5px]">
                 Privacy & Cookies:
               </span>
-              <span className="text-xs text-gray-600">
+              <span className="text-xs text-gray-600 leading-[5px]">
                 We take your privacy seriously. This site uses only essential
-                cookies to ensure the donation process works properly.{" "}
+                cookies to ensure the donation process works properly.
                 <span className="font-medium text-gray-700">
                   We do not use any tracking or marketing cookies.
                 </span>
               </span>
             </div>
 
-            {/* Action buttons stacked */}
-            <div className="flex flex-col gap-3 flex-shrink-0">
+            {/* Action buttons */}
+            <div className="flex flex-col gap-2 justify-center flex-shrink-0">
               <Button
                 onClick={() =>
                   window.open(
