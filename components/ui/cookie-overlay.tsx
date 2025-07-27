@@ -65,35 +65,30 @@ export function CookieOverlay() {
 
       {/* Main container */}
       <div className="relative bg-white/95 backdrop-blur-md border-t border-gray-200/80 shadow-2xl">
-        <div className="max-w-6xl mx-auto px-4 py-6">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6">
-            {/* Icon and content */}
-            <div className="flex items-start gap-4 flex-1">
-              <div className="flex-shrink-0 mt-1">
-                <div className="w-10 h-10 rounded-full bg-[#448989]/10 flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-[#448989]" />
+        <div className="max-w-6xl mx-auto px-4 py-3">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-6 h-6 rounded-full bg-[#448989]/10 flex items-center justify-center">
+                  <Shield className="w-3 h-3 text-[#448989]" />
                 </div>
+                <h3 className="text-sm font-semibold text-gray-900">
+                  Privacy & Cookies
+                </h3>
               </div>
 
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-base font-semibold text-gray-900">
-                    Privacy & Cookies
-                  </h3>
-                </div>
-
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  We take your privacy seriously. This site uses only essential
-                  cookies to ensure the donation process works properly.{" "}
-                  <span className="font-medium text-gray-700">
-                    We do not use any tracking or marketing cookies.
-                  </span>
-                </p>
-              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                We take your privacy seriously. This site uses only essential
+                cookies to ensure the donation process works properly.{" "}
+                <span className="font-medium text-gray-700">
+                  We do not use any tracking or marketing cookies.
+                </span>
+              </p>
             </div>
 
             {/* Action buttons */}
-            <div className="flex items-center gap-3 flex-shrink-0">
+            <div className="flex items-center gap-2 flex-shrink-0">
               <Button
                 onClick={() =>
                   window.open(
@@ -103,7 +98,7 @@ export function CookieOverlay() {
                 }
                 variant="outline"
                 size="sm"
-                className="border-[#448989] text-[#448989] hover:bg-[#448989]/10 hover:border-[#448989] transition-colors"
+                className="border-[#448989] text-[#448989] hover:bg-[#448989]/10 hover:border-[#448989] transition-colors text-xs px-3 py-1"
               >
                 Learn More
               </Button>
@@ -111,7 +106,7 @@ export function CookieOverlay() {
               <Button
                 onClick={handleDismiss}
                 size="sm"
-                className="bg-[#448989] hover:bg-[#448989]/80 text-white shadow-sm hover:shadow-md transition-all duration-200"
+                className="bg-[#448989] hover:bg-[#448989]/80 text-white shadow-sm hover:shadow-md transition-all duration-200 text-xs px-3 py-1"
               >
                 Got this
               </Button>
@@ -120,13 +115,13 @@ export function CookieOverlay() {
         </div>
 
         {/* Close button */}
-        <button
+        {/* <button
           onClick={handleDismiss}
-          className="absolute top-4 right-4 p-1 rounded-full hover:bg-gray-100 transition-colors group"
+          className="absolute top-2 right-2 p-1 rounded-full hover:bg-gray-100 transition-colors group"
           aria-label="Close cookie notice"
         >
-          <X className="w-4 h-4 text-gray-500 group-hover:text-gray-700" />
-        </button>
+          <X className="w-3 h-3 text-gray-500 group-hover:text-gray-700" />
+        </button> */}
       </div>
     </div>
   )
