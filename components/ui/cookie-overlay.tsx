@@ -60,33 +60,35 @@ export function CookieOverlay() {
             : "translate-y-full opacity-0"
       }`}
     >
+      {/* Backdrop blur effect */}
+      <div className="absolute inset-0 bg-black/5 backdrop-blur-sm" />
 
-      {/* Main container */}
-      <div className="relative bg-white/95 border-t border-gray-200/80 shadow-2xl">
-        <div className="max-w-6xl mx-auto px-3 py-2">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
-            {/* Content */}
+      {/* Main container - much more compact */}
+      <div className="relative bg-white/95 backdrop-blur-md border-t border-gray-200/80 shadow-2xl">
+        <div className="max-w-6xl mx-auto px-4 py-3">
+          <div className="flex items-center gap-3">
+            {/* Icon inline with title */}
+           
+
+            {/* Text and buttons inline */}
             <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1">
-                <div className="w-6 h-6 rounded-full bg-[#448989]/10 flex items-center justify-center">
-                  <Shield className="w-3 h-3 text-[#448989]" />
-                </div>
-                <h3 className="text-sm font-semibold text-gray-900">
-                  Privacy & Cookies
-                </h3>
-              </div>
+            
+              <span className="text-sm font-semibold text-gray-900 mr-2">
 
-              <p className="text-xs text-gray-600 leading-relaxed">
+
+                Privacy & Cookies:
+              </span>
+              <span className="text-xs text-gray-600">
                 We take your privacy seriously. This site uses only essential
                 cookies to ensure the donation process works properly.{" "}
                 <span className="font-medium text-gray-700">
                   We do not use any tracking or marketing cookies.
                 </span>
-              </p>
+              </span>
             </div>
 
-            {/* Action buttons */}
-            <div className="flex items-center gap-2 flex-shrink-0">
+            {/* Action buttons stacked */}
+            <div className="flex flex-col gap-3 flex-shrink-0">
               <Button
                 onClick={() =>
                   window.open(
@@ -96,30 +98,21 @@ export function CookieOverlay() {
                 }
                 variant="outline"
                 size="sm"
-                className="border-[#448989] text-[#448989] hover:bg-[#448989]/10 hover:border-[#448989] transition-colors text-xs px-3 py-1"
+                className="border-[#448989] text-[#448989] hover:bg-[#448989]/10 hover:border-[#448989] transition-colors text-xs px-2 py-1 h-6"
               >
-                Learn More
+                Learn more
               </Button>
 
               <Button
                 onClick={handleDismiss}
                 size="sm"
-                className="bg-[#448989] hover:bg-[#448989]/80 text-white shadow-sm hover:shadow-md transition-all duration-200 text-xs px-3 py-1"
+                className="bg-[#448989] hover:bg-[#448989]/80 text-white shadow-sm hover:shadow-md transition-all duration-200 text-xs px-2 py-1 h-6"
               >
-                Got this
+                Got it
               </Button>
             </div>
           </div>
         </div>
-
-        {/* Close button */}
-        {/* <button
-          onClick={handleDismiss}
-          className="absolute top-2 right-2 p-1 rounded-full hover:bg-gray-100 transition-colors group"
-          aria-label="Close cookie notice"
-        >
-          <X className="w-3 h-3 text-gray-500 group-hover:text-gray-700" />
-        </button> */}
       </div>
     </div>
   )
