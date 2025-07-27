@@ -74,7 +74,7 @@ export function CookieOverlay() {
               </span>
               <span className="text-xs text-gray-600 leading-[5px]">
                 We take your privacy seriously. This site uses only essential
-                cookies to ensure the donation process works properly.
+                cookies to ensure the donation process works properly.{" "}
                 <span className="font-medium text-gray-700">
                   We do not use any tracking or marketing cookies.
                 </span>
