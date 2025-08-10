@@ -8,7 +8,7 @@ export function Footer() {
       <div className="flex flex-col max-w-6xl mx-auto px-6 py-8 gap-4 text-center">
         <div className="flex flex-col md:flex-row justify-center gap-8 mb-4 flex-wrap">
           <a
-            href="https://givingonline.eu/imprint/"
+            href="https://www.hillsongberlin.de/imprint/"
             className="text-gray-600 hover:text-gray-900 transition-colors"
             target="_blank"
             rel="noreferrer"
@@ -16,7 +16,7 @@ export function Footer() {
             Imprint
           </a>
           <a
-            href="https://givingonline.eu/privacy-policy/"
+            href="https://www.hillsongberlin.de/privacy"
             className="text-gray-600 hover:text-gray-900 transition-colors"
             target="_blank"
             rel="noreferrer"
