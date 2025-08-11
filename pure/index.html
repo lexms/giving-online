@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giving</title>
+    <meta name="description" content="Be a part of the Mission - Changing perceptions about Jesus & His Church">
+
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Giving Platform">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Favicons -->
+    <link rel="icon" href="./icons/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="./icons/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- PWA Install Header -->
+    <div id="pwa-install-header" class="pwa-install-header">
+        <div class="pwa-install-content">
+            <!-- Content will be dynamically updated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <!-- Giving Logo -->
+                <div class="hero-logo">
+                    <img src="./images/giving-LogoOnly-white.svg" alt="Giving Logo" class="logo-image">
+                </div>
+
+                <h1 class="hero-title">Be a part of the Mission</h1>
+
+                <p class="hero-description">
+                    Changing perceptions about Jesus & His Church, Creating a new
+                    mindset through the Gospel, Contributing to the wellbeing of
+                    Society.
+                </p>
+
+                <a href="#give" class="hero-cta">Give now</a>
+
+                <!-- Manual PWA Install Button -->
+                <div class="manual-install-section">
+                    <button id="manual-install-btn" class="manual-install-btn" style="display: none;">
+                        Install App
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="main-content">
+            <div class="container">
+                <div class="content-grid">
+                    <h2 class="section-title">Partnering in the Mission</h2>
+
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3 class="card-title">
+                                <span class="card-icon">
+                                    <img src="./icons/church.svg" alt="Church" class="card-svg-icon">
+                                </span>
+                                Tithe & Offerings
+                            </h3>
+                            <p class="card-text">
+                                Tithes & Offerings operate the ongoing work of the local
+                                church. By bringing our tithes & our offerings to God's House
+                                we put God first and honour who He is in our lives.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">
+                                <span class="card-icon">
+                                    <img src="./icons/heart-for-the-house.svg" alt="Heart for the House"
+                                        class="card-svg-icon">
+                                </span>
+                                Heart for the House
+                            </h3>
+                            <p class="card-text">
+                                Heart for the House is an annual sacrificial giving that
+                                advances the church. It's a time of prayer and listening to
+                                God's voice.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">Advancing the mission</h2>
+
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3 class="card-title">
+                                <span class="card-icon">
+                                    <img src="./icons/kingdom-builders.svg" alt="Kingdom Builders"
+                                        class="card-svg-icon">
+                                </span>
+                                Kingdom Builders
+                            </h3>
+                            <p class="card-text">
+                                Kingdom Builders are the financial pillars of our church, who
+                                feel called by God to advance the church financially
+                                throughout the year, above their normal tithes & offerings. To
+                                know more about Kingdom Builders, please contact our team.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">
+                                <span class="card-icon">
+                                    <img src="./icons/building-fund.svg" alt="Building Fund" class="card-svg-icon">
+                                </span>
+                                Building Fund
+                            </h3>
+                            <p class="card-text">
+                                The Building Fund is an initiative to move towards owning our
+                                own facilities, establishing the Church for the Generations to
+                                come.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FundraisingBox Form -->
+                    <div class="donation-section" id="give">
+                        <h2 class="section-title">Make Your Contribution</h2>
+
+                        <!-- FundraisingBox Payment Script -->
+                        <div class="payment-widget">
+                            <script type="text/javascript"
+                                src="https://secure.fundraisingbox.com/app/paymentJS?hash=0s4qe4vszf7y7jfh"></script>
+                            <noscript>Please enable JavaScript</noscript>
+                            <a target="_blank" href="https://www.fundraisingbox.com/?utm_source=donation_form">
+                                <img border="0" style="border: 0 !important"
+                                    src="https://secure.fundraisingbox.com/images/FundraisingBox-Logo-Widget.png"
+                                    alt="FundraisingBox Logo" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Tax Deductibility</h3>
+                        <p class="card-text">
+                            Your giving is fully tax-deductible, a giving-statement for your
+                            tax-return will be posted to you at the beginning of the new year.
+                            As an independent church, we do not benefit from the state church
+                            tax, if you would like to know more about how to opt out of the
+                            church tax system, please let the team know.
+                        </p>
+                    </div>
+
+                    <!-- Bank Transfer Section -->
+                    <div class="bank-transfer-section">
+                        <h3 class="bank-transfer-title">You can also give via Standing Order (Dauerauftrag)</h3>
+                        <p class="bank-transfer-description">
+                            The best way to help your church plan financially. Please use the following details to set
+                            up your standing order:
+                        </p>
+
+                        <div class="bank-details">
+                            <div class="bank-detail-item">
+                                <span class="bank-detail-label">Account Name:</span>
+                                <span class="bank-detail-value">Hillsong Berlin e.V.</span>
+                                <button class="copy-btn" data-value="Hillsong Berlin e.V." data-label="Account Name">
+                                    <img src="./icons/copy.svg" alt="Copy" class="copy-icon">
+                                </button>
+                            </div>
+
+                            <div class="bank-detail-item">
+                                <span class="bank-detail-label">Bank:</span>
+                                <span class="bank-detail-value">Commerzbank Berlin</span>
+                                <button class="copy-btn" data-value="Commerzbank Berlin" data-label="Bank">
+                                    <img src="./icons/copy.svg" alt="Copy" class="copy-icon">
+                                </button>
+                            </div>
+
+                            <div class="bank-detail-item">
+                                <span class="bank-detail-label">IBAN:</span>
+                                <span class="bank-detail-value">DE07 1204 0000 0623 4595 00</span>
+                                <button class="copy-btn" data-value="DE07 1204 0000 0623 4595 00" data-label="IBAN">
+                                    <img src="./icons/copy.svg" alt="Copy" class="copy-icon">
+                                </button>
+                            </div>
+
+                            <div class="bank-detail-item">
+                                <span class="bank-detail-label">SWIFT CODE (BIC):</span>
+                                <span class="bank-detail-value">COBADEFFXXX</span>
+                                <button class="copy-btn" data-value="COBADEFFXXX" data-label="SWIFT CODE (BIC)">
+                                    <img src="./icons/copy.svg" alt="Copy" class="copy-icon">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://www.hillsongberlin.de/imprint/" target="_blank" rel="noopener noreferrer">
+                    Imprint
+                </a>
+                <a href="https://www.hillsongberlin.de/privacy" target="_blank" rel="noopener noreferrer">
+                    Privacy Policy
+                </a>
+            </div>
+            <p class="footer-copyright">© <span id="current-year"></span> Giving. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Overlay -->
+    <div id="cookie-overlay" class="cookie-overlay">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <span class="cookie-title">Privacy & Cookies:</span><span class="cookie-description">
+                    We take your privacy seriously. This site uses only essential
+                    cookies to ensure the donation process works properly.
+                    <span class="cookie-emphasis">We do not use any tracking or marketing cookies.</span>
+                </span>
+            </div>
+            <div class="cookie-buttons">
+                <button id="cookie-learn-more" class="cookie-btn cookie-learn-more">Learn more</button>
+                <button id="cookie-got-it" class="cookie-btn cookie-got-it">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="pwa-install.js"></script>
+</body>
+
+</html>
