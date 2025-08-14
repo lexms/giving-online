@@ -165,8 +165,8 @@ class PWAInstallManager {
 
   renderIOSContent() {
     this.renderContent({
-      text: "For iOS users, please add to home screen for a better experience",
-      buttonText: "How to Install",
+      text: "For iOS users, please add to home screen to install",
+      buttonText: "How?",
       buttonId: "ios-install-help",
       buttonStyle:
         "background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer; font-weight: 500;",
